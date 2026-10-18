@@ -39,8 +39,7 @@
 
 ## What This Does
 
-I chose r/LetsTalkMusic, a public Reddit community dedicated to in-depth discussions about music across all genres. Because the subreddit encourages both analytical essays and strong personal opinions, it has a natural variation in post quality. My classifier sorts posts into three labels: analysis, hot_take, and reaction. An analysis post makes a specific argument backed by checkable facts like song credits, chart data, or historical context; a hot_take is a confident, unsupported claim or opinion; and a reaction is an immediate, short emotional response or personal anecdote
-
+I chose LetsTalkMusic, a public Reddit community dedicated to in-depth discussions about music across all genres. Because the subreddit encourages both analytical essays and strong personal opinions, it has a natural variation in post quality. My classifier sorts posts into three labels: analysis, hot_take, and reaction. An analysis post makes a specific argument backed by checkable facts like song credits, chart data, or historical context; a hot_take is a confident, unsupported claim or opinion; and a reaction is an immediate, short emotional response or personal anecdote.
 
 
 ---
