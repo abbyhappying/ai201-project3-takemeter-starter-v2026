@@ -77,7 +77,7 @@ reaction is the smallest class (~18% of data) and has very few examples in the t
 
 ---
 
-## 4.The model's accuracy on its most confident 1/3 of predictions must be at least 15% higher than its accuracy on the least confident 1/3.
+## 4.The model's accuracy on its most confident 1/3 of predictions must be at least 15 percentage points (0.15) higher than its accuracy on the least confident 1/3.
 
 
 **Why this target:**
@@ -86,14 +86,13 @@ If the model is well-calibrated, the predictions it is highly confident about sh
 
 ---
 
-## 5.Training Convergence (Loss Reduction)
-**Criterion:** The training loss must drop by at least 40% from the first epoch to the final (3rd) epoch.
+## 5.
+**Criterion:** The model must correctly classify at least 50% of the true analysis posts (Analysis Recall ≥ 0.50) across all three seeds.
 
 
 
 **Why this target:**
-This proves the model is actually learning from the data rather than just randomly initializing and failing to update its weights. A 40% drop over 3 epochs indicates a healthy learning rate.
-
+analysis is the hardest class for the model because it often contains heated tones that look like hot_take. With only ~9 examples in the test split, a 30% error rate means failing on 3 posts. A 50% recall ensures the model is actually learning the structural differences (facts vs. opinions) rather than just predicting hot_take for everything.
 
 
 ---

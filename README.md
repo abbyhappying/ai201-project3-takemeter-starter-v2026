@@ -50,7 +50,7 @@ I chose LetsTalkMusic, a public Reddit community dedicated to in-depth discussio
 ### `label_one`
 
 ### `analysis`
-**Definition:** A post that makes an argument or observation backed by specific, checkable facts (such as songwriting credits, historical chart data, specific lyrics, or direct quotes).
+**Definition:** A post that makes an argument backed by specific, checkable facts (such as songwriting credits, historical data, direct quotes) OR by a clear logical/interpretive framework (e.g., analyzing a pop star through the lens of drag culture, or explaining why a trend makes sense).
 **Example 1:**
 
 >He wrote "Mano a Mano" ... Nuff said. In all seriousness he has a much bigger role on the earlier albums. And he's a good singer and arranger.
@@ -91,7 +91,7 @@ I chose LetsTalkMusic, a public Reddit community dedicated to in-depth discussio
 
 ## The Dataset
 
-**Where the posts came from:** `r/LetsTalkMusic` (a public music discussion subreddit). Posts were copied manually to preserve complete text.
+**Where the posts came from:** `r/LetsTalkMusic` (a public music discussion subreddit). Posts were collected with script from Reddit's public RSS feed to preserve complete text.
 
 **How I labelled them:** I first cold-labelled 20 posts entirely by myself (marked as `cold` in the notes). For the remaining posts, I used an AI tool for pre-labelling, but I reviewed and corrected every single row to ensure consistency with my definitions (marked as `pre-labelled, checked`). All posts were then manually reviewed for spelling and formatting.
 
@@ -101,8 +101,8 @@ I chose LetsTalkMusic, a public Reddit community dedicated to in-depth discussio
 
 | Label | Count | Share |
 |---|---|---|
-| `hot_take` | 142 | 57.2% |
-| `analysis` | 62 | 24.8% |
+| `hot_take` | 141 | 57% |
+| `analysis` | 63 | 25% |
 | `reaction` | 45 | 18.0% |
 | **Total** | **249** | **100%** |
 
