@@ -54,32 +54,32 @@ I chose LetsTalkMusic, a public Reddit community dedicated to in-depth discussio
 
 ### `label_one`
 
-**Definition:**
-
+### `analysis`
+**Definition:** A post that makes an argument or observation backed by specific, checkable facts (such as songwriting credits, historical chart data, specific lyrics, or direct quotes).
 **Example 1:**
->
 
+>He wrote "Mano a Mano" ... Nuff said. In all seriousness he has a much bigger role on the earlier albums. And he's a good singer and arranger.
 **Example 2:**
->
+>"I'm Swedish and don't share your experience. Me and my friends listen to country. Country as a genre went up with 60% on Spotify in Sweden last year."
 
 ### `label_two`
 
-**Definition:**
+### `hot_take`
+
+**Definition:** A confident claim, evaluation, or opinion that is offered without supporting evidence, checkable facts, or detailed reasoning.
 
 **Example 1:**
->
+>The true answer is very complex and this question can be answered in many different ways but most simply the answer is mustache.
 
 **Example 2:**
->
+>I'm sure John's stories vary slightly from Daryl's.. and I'm sure both versions of the truth have "evolved" over the years.
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `hot_take` vs. `analysis`
 
 **The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
-
+> If a post makes a claim but provides no checkable evidence, it is a `hot_take`. If it names a specific, checkable fact (like a song title, a direct quote, or a specific event) to back up its point, it is analysis — even if the post is very short or the tone is heated. For example, merely saying "Flav plays lots of instruments" is a hot take, but "Flav played bass, guitar, and drums when I saw them" is analysis because it provides specific, checkable details.
 
 
 ---
