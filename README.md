@@ -46,11 +46,6 @@ I chose LetsTalkMusic, a public Reddit community dedicated to in-depth discussio
 
 ## Label Taxonomy
 
-<!-- Each label: a one-sentence definition and two real examples from your
-     reading. Then your decision rule for the hardest boundary.
-
-     The decision rule is worth a point on its own and it's the thing most
-     people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
 ### `label_one`
 
@@ -73,6 +68,16 @@ I chose LetsTalkMusic, a public Reddit community dedicated to in-depth discussio
 
 **Example 2:**
 >I'm sure John's stories vary slightly from Daryl's.. and I'm sure both versions of the truth have "evolved" over the years.
+
+### `reaction`
+
+**Definition:** An immediate, short emotional response, joke, agreement, or personal anecdote that does not constitute an independent argument or evaluation.
+
+**Example 1:**
+> "That's a very interesting analysis. Thank you"
+
+**Example 2:**
+> "My buddy and I have been doing if Fred Schneider covered songs for decades. I think it started with Lips of an Angel by Hinder or something like that we'd sing like him."
 
 ### The hardest boundary
 
@@ -103,8 +108,6 @@ I chose LetsTalkMusic, a public Reddit community dedicated to in-depth discussio
 
 **Three hard cases**
 
-<!-- Any post that made you pause: what it was, which two labels it could have
-     been, and what you chose. These are worth more than the easy 190. -->
 
 **1.**
 > *The post:* "He sang lead vocals on Rock Lobster, the record that made them!"
