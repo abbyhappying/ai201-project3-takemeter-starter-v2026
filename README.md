@@ -86,22 +86,20 @@ I chose LetsTalkMusic, a public Reddit community dedicated to in-depth discussio
 
 ## The Dataset
 
-<!-- Where you collected from, how you labelled, your counts, and three hard
-     cases. -->
+**Where the posts came from:** `r/LetsTalkMusic` (a public music discussion subreddit). Posts were copied manually to preserve complete text.
 
-**Where the posts came from:**
+**How I labelled them:** I first cold-labelled 20 posts entirely by myself (marked as `cold` in the notes). For the remaining posts, I used an AI tool for pre-labelling, but I reviewed and corrected every single row to ensure consistency with my definitions (marked as `pre-labelled, checked`). All posts were then manually reviewed for spelling and formatting.
 
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| `hot_take` | 142 | 57.2% |
+| `analysis` | 62 | 24.8% |
+| `reaction` | 45 | 18.0% |
+| **Total** | **249** | **100%** |
 
 **Three hard cases**
 
@@ -109,25 +107,25 @@ Say so plainly — the disclosure is required, not penalised. -->
      been, and what you chose. These are worth more than the easy 190. -->
 
 **1.**
-> *The post:*
+> *The post:* "He sang lead vocals on Rock Lobster, the record that made them!"
 >
-> *Could have been:*
+> *Could have been:* `reaction` or `analysis`
 >
-> *I chose, because:*
+> *I chose `analysis`, because:* Although it is very short and uses an exclamation mark (like an emotional reaction), it provides a specific, checkable fact (he sang lead on their biggest hit) that directly refutes the previous comment.
 
 **2.**
-> *The post:*
+> *The post:* "I've been saying this for years but sabrina carpenter, the image she adopts for public consumption, is essentially a more effective drag persona than chappell roan. if you think of her performances in that way, they make sense."
 >
-> *Could have been:*
+> *Could have been:* `hot_take` or `analysis`
 >
-> *I chose, because:*
+> *I chose `analysis`, because:* The author provides a specific interpretive framework ("if you think of her performances in that way") rather than just dropping a blind opinion. It explains *how* to view the phenomenon, which acts as a form of reasoning.
 
 **3.**
-> *The post:*
+> *The post:* "One time on Kimmel they asked random people what does Ryan Lewis do in Macklemore... Then the last person they ask is Macklemore and he goes 'honestly I have no idea' haha. Pretty funny"
 >
-> *Could have been:*
+> *Could have been:* `reaction` or `analysis`
 >
-> *I chose, because:*
+> *I chose `analysis`, because:* Despite the casual storytelling tone and the "haha" at the end, the core of the post is recounting a specific, verifiable event (the Jimmy Kimmel interview) to support the broader point that some band members' contributions are invisible to the public.
 
 ---
 
