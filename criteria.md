@@ -51,61 +51,48 @@ whether you hit them:
 
 ---
 
-## 1.
-
-<!-- Your criterion. It must name a number. -->
-
-
+## 1.Criterion: Overall accuracy must be at least 0.75 (75%).
 
 **Why this target:**
+With hot_take making up 57% of the dataset, a baseline model that always guesses hot_take would score 57%. A target of 75% is 18 points above this majority baseline, proving the model has actually learned to distinguish the minority classes (analysis and reaction) rather than just exploiting class imbalance.
 
 
 
 ---
 
-## 2.
-
-<!-- Your criterion. -->
+## 2.The macro-averaged F1 score must be at least 0.55.
 
 
 
 **Why this target:**
 
+Macro F1 treats all classes equally, meaning a low score in reaction cannot be hidden by a high score in hot_take. Because natural language has inherent label noise (especially between hot_take and analysis), 0.55 represents a strong, balanced performance across all three classes without demanding unattainable perfection.
+
+---
+
+## 3.The F1 score specifically for the reaction label must be at least 0.4.
+
+**Why this target:**
+reaction is the smallest class (~18% of data) and has very few examples in the test set, making its F1 score highly volatile. A 0.4 F1 proves the model successfully recognizes the distinct surface features of reactions, rather than suffering from majority-class bias and defaulting to hot_take for everything.
+
+---
+
+## 4.The model's accuracy on its most confident 1/3 of predictions must be at least 15% higher than its accuracy on the least confident 1/3.
+
+
+**Why this target:**
+If the model is well-calibrated, the predictions it is highly confident about should be right much more often than the ones it is unsure about. A gap of 15% proves the model's internal probability scores actually mean something.
 
 
 ---
 
-## 3.
-
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
-
----
-
-## 4.
-
-<!-- Your criterion. -->
+## 5.Training Convergence (Loss Reduction)
+**Criterion:** The training loss must drop by at least 40% from the first epoch to the final (3rd) epoch.
 
 
 
 **Why this target:**
-
-
-
----
-
-## 5.
-
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
+This proves the model is actually learning from the data rather than just randomly initializing and failing to update its weights. A 40% drop over 3 epochs indicates a healthy learning rate.
 
 
 
