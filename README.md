@@ -136,15 +136,35 @@ I chose LetsTalkMusic, a public Reddit community dedicated to in-depth discussio
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** `distilbert-base-uncased`, fine-tuned for 3-way sequence classification (`analysis`, `hot_take`, `reaction`).
 
 **Settings:** <!-- epochs, learning rate, batch size, seed -->
 
-**Anything I changed from the defaults, and why:**
+| Setting | Value |
+|---|---|
+| Epochs | 3 |
+| Learning rate | 2e-5 |
+| Batch size | 16 |
+| Max length | 128 tokens |
+| Seed | 42 |
+| Hardware | CPU (torch 2.14.1+cpu) |
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
+**Anything I changed from the defaults, and why:**
+I didn't change any hyperparameters. I wanted the first run to be a clean reference point, so any later change can be compared against the defaults. The only edits were in the setup: I filled in my name and email, and I pointed the notebook at my own `labels.csv` (moved to the repo root) instead of the practice data.
+
+**Split sizes:**
+
+Stratified 70/15/15 split of 249 posts with seed 42: **train 173 · val 38 · test 38**.
+
+| Label | Train | Val | Test |
+|---|---|---|---|
+| `hot_take` | 98 | 22 | 21 |
+| `analysis` | 44 | 9 | 10 |
+| `reaction` | 31 | 7 | 7 |
+
+`reaction` has only **7 examples in the test split**, which is below about 8, so its F1 will move a lot between seeds. `analysis` (10) is only a little better off.
+
+**What the first run did:** With these settings the model predicted `hot_take` for all 38 test posts. That gave 55.3% accuracy, which is just the share of the majority class, and a macro F1 of 0.237, because `analysis` and `reaction` both scored F1 = 0. Three epochs on 173 examples, with 57% of them `hot_take`, wasn't enough for the model to move past guessing the majority label. This is the first thing I'd look at changing, for example more epochs or a higher learning rate.
 
 
 
