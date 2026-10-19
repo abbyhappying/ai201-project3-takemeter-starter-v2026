@@ -172,26 +172,21 @@ Stratified 70/15/15 split of 249 posts with seed 42: **train 173 · val 38 · te
 
 ## How I Used AI
 
-<!-- Two specific moments — what you asked, what came back, what you changed.
-
-     ⚠️ Plus disclosure of any pre-labelling. If you had a model pre-label a
-     batch and then read and corrected every one, say that. It's an allowed
-     workflow and disclosing it costs you nothing. Not disclosing it is the
-     problem. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I asked an AI assistant to help me resolve boundary cases when deciding between the `hot_take` and `analysis` labels. Specifically, I provided posts that felt like strong opinions but contained specific factual references, and asked the AI to explain why it would classify them a certain way.
+- *What came back:* The AI explained that merely name-dropping specific bands (e.g., "She sounds like Fleetwood Mac") is still a `hot_take` because it lacks an underlying argument or checkable evidence. However, if the post uses a specific framework or factual event (e.g., "Flav played bass, guitar, and drums live") to refute a point, it counts as `analysis`.
+- *What I changed:* I adopted this stricter definition and added it to my decision rules. I then went back to my dataset and corrected a few posts where I had mistakenly labeled opinionated name-dropping as `analysis`. (I also used AI to help summarize code explanations and understand the evaluation metrics in the notebook).
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I asked an AI tool to help me pre-label a large batch of the collected Reddit posts based on my three label definitions.
+- *What came back:* The AI successfully categorized the clear-cut examples (like long analytical essays or short jokes). However, it frequently misclassified short, rhetorical questions and sarcastic remarks as `hot_take`.
+- *What I changed:* I reviewed every single AI-generated label row by row. I corrected dozens of errors, changing many short questions to `reaction` and upgrading some fact-based posts to `analysis`. I also fixed formatting issues and spelling errors introduced during the export process.
 
 **Pre-labelling disclosure:**
+Yes, I used an AI tool to pre-label the majority of my dataset. **However, I manually reviewed, corrected, and verified every single row** to ensure it matched my specific label definitions. The 20 rows marked as `cold` in the note column were labeled entirely by me without any AI assistance before the pre-labeling process began.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
