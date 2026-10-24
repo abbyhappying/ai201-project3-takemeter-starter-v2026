@@ -202,21 +202,25 @@ Yes, I used an AI tool to pre-label the majority of my dataset. **However, I man
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.237 | 0.553 | +0.316 |
+| Macro F1 | 0.203 | 0.237 | +0.034 |
+| F1 — `analysis` | 0.359 | 0.000 | -0.359 |
+| F1 — `hot_take` | 0.000 | 0.712 | +0.712 |
+| F1 — `reaction` | 0.250 | 0.000 | -0.250 |
 
 **What I predicted before I looked:**
-<!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
-     prediction made afterwards isn't one. -->
+I predict my trained model will beat the baseline model most significantly on the hot_take class. Because hot_take accounts for 56% of my dataset, my fine-tuned DistilBERT has seen hundreds of examples of this specific tone.
 
 **What the gap actually means:**
-<!-- If the baseline matched your trained model, your fine-tuning added
-     nothing — and that is a real finding, not a failure. Say it plainly. -->
+Because the Macro F1 barely improved (+0.034), it proves that my fine-tuning did not add meaningful learning; it just taught the model to exploit the 56% `hot_take` majority. I think that the fine-tuning added little to no real value for minority classes, and a strategy to handle class imbalance is absolutely required to make this model actually useful.
 
+### The Value of My Label Definitions
 
+To measure the actual value of my label definitions, I ran the baseline a second time without `label_definitions.txt` (falling back to bare label names).
 
+Counter-intuitively, the overall accuracy increased from 0.237 (with definitions) to 0.500 (without definitions). However, the per-label metrics expose why this is an illusion. Without the context of my definitions, the zero-shot BART model took a shortcut and simply guessed `hot_take` for almost every post (F1 spiked to 0.680), since `hot_take` makes up 56% of the dataset.
+
+This experiment proves my definitions forced the model to actually read the text structure, allowing it to correctly identify some `analysis` and `reaction` posts (F1 0.359 and 0.250).
 ---
 
 ## Run Log — Before
