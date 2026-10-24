@@ -3,28 +3,28 @@
   "n": 38,
   "seed": 42,
   "held_out": true,
-  "used_definitions": false,
+  "used_definitions": true,
   "scores": {
     "n": 38,
-    "accuracy": 0.5,
-    "f1_macro": 0.32923076923076927,
+    "accuracy": 0.23684210526315788,
+    "f1_macro": 0.20299145299145302,
     "per_label": {
       "analysis": {
-        "precision": 0.3333333333333333,
-        "recall": 0.1,
-        "f1": 0.15384615384615383,
+        "precision": 0.2413793103448276,
+        "recall": 0.7,
+        "f1": 0.358974358974359,
         "support": 10
       },
       "hot_take": {
-        "precision": 0.5862068965517241,
-        "recall": 0.8095238095238095,
-        "f1": 0.68,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
         "support": 21
       },
       "reaction": {
-        "precision": 0.16666666666666666,
-        "recall": 0.14285714285714285,
-        "f1": 0.15384615384615383,
+        "precision": 0.2222222222222222,
+        "recall": 0.2857142857142857,
+        "f1": 0.25,
         "support": 7
       }
     }
@@ -33,17 +33,17 @@
     {
       "text": "Watching Live at Darylis House you can see that nervous energy. Takes it upon himself to play a lot of parts that his guest(s) wrote and perfected. And he usually plays with a generic crap guitar tone. I like watching LADH for the guests and the incredible backing band, not for what Daryl thinks he should be doing.",
       "gold": "analysis",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "To me, her approach is a breath of fresh air. One of the most powerful aspects of art and music is that they can open up alternative ways of feeling and thinking. But the distinction between make-believe and reality can get lost: when musicians are more interested in the real-life attention they get (and the actual power this attention gives them), instead of making up stuff for others to be inspired by. The specific nonsense that Sabrina Carpenter is spreading is meant to make no sense in the real world, it?s emphatically imaginary and dude, do we need that. I don?t resonate with all of her work, but I love her embrace of artificiality.",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "reaction"
     },
     {
       "text": "IMO Drake is the one who killed rap, he might be the \"goat\" to some people, but to me he has always been corny.",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "One time on Kimmel they asked random people what does Ryan Lewis do in Macklemore with Ryan Lewis. And lots of random answers. Then the last person they ask is Macklemore and he goes ??onestly I have no idea??haha. Pretty funny",
@@ -53,22 +53,22 @@
     {
       "text": "I'd argue that their hair is built for it",
       "gold": "reaction",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "it is funny you say that I'm a John Oates fan partly because I have Daryl Hall tendencies and Oates reminds me to lean away from them and not into them.",
       "gold": "reaction",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Do you think black kids and rednecks in the 90s had the same taste in music? There was always cultural division like there is now.",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "I dont think that had a huge impact because the entire 2016 XXL freshman class is still around and occupying a similar space. People are just over them. Its been 5-10 years since all them started blowing up and there used to be a new crop of hit makers ever year or 2.",
       "gold": "analysis",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Really great and informative write-up, but my takeaway from this is that the Allen sisters should've had their own band! They were really had something going there.",
@@ -78,47 +78,47 @@
     {
       "text": "Thanks for the insight, it helps me see what her appeal is. It's a very interesting strategy",
       "gold": "reaction",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "He played guitar and helped write songs like Sara Smile, Out of Touch, You Make My Dreams, and Maneater.",
       "gold": "analysis",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Most of the stuff that charted was pretty talentless.",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "reaction"
     },
     {
       "text": "With the exception of major label industry plant pop and pop country, you can say this about every genre that is currently on the charts. Chart popularity takes time for an artist to build a fanbase and/or money to promote them (or a meme that burns out in a few weeks).",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Electronic is cheaper to produce and more versatile in sound. Even Billy Corgan saw that writing on the wall. He was one to help create that trend.",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Her earlier music was marketed as more personal but IIRC she doesn't even consider those albums part of her official discography anymore because the label didn't allow her to give much creative input",
       "gold": "analysis",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Flavor Flav truly is rap's greatest hype man. I couldn't take my eyes off of the guy when I saw PE live. He was born to entertain.",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Sure, but that was from BEFORE she changed her persona to the current one. It feel, to me, that she is not doing something that she wants to be doing as an artist, and that her change in persona wasn't a natural path of growing as an artist",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Oates has plenty of writing credits, individual and shared with Hall, and they don't just give those out for nothing. So I think that Hall quote is pretty dubious. Even if it is all true, Oates was still a good guitarist and vocalist and that counts for something.",
       "gold": "analysis",
-      "predicted": "hot_take"
+      "predicted": "reaction"
     },
     {
       "text": "There's a reason why they were inducted into the Rock and Roll HALL of Fame and not the Rock and Roll OATES of Fame",
@@ -133,42 +133,42 @@
     {
       "text": "I agree, I'm a 26 y/o straight guy so I'm not the target audience but I do enjoy the music of other pop girls. I went through a phase of listening to The Subway on repeat. But with Sabrina I just don't get it. The music is bland, there's no distinct sound like Olivia's pop-punk guitar edge and the hooks aren't particularly memorable. Espresso aside, I couldn't hum another Sabrina Carpenter song and I've definitely heard some. I also find the overtly sexual lyrics a bit icky especially considering how many teenage and preteen fans she has. It's better than the misogyny in 00's hip-hop I suppose. With her image, yes it's very manufactured, but who is it for? On stage she dresses in a very male-gaze-y way, I mean she can wear what she wants but I don't get it.",
       "gold": "analysis",
-      "predicted": "reaction"
+      "predicted": "analysis"
     },
     {
       "text": "She creates very catchy pop songs with impeccable pop production, loads up her lyrics with self-depricating humor as well as double entendres, and writes from the very relatable POV of a straight woman who desires a fullfilling relationship from a man, but is willing to settle for sex because the men she encounters in her songs end up disappointing her in one way or another. Her whole image is definitely rooted in drag, which is an extreme exaggeration of femininity, and she draws upon pop, rock and country sounds in her music. On her new record, you can hear nods to Shania Twain, TLC, En Vogue, ABBA, Dolly Parton, and probably a lot more. It's like drinking a McDonald's Coke. Everything from the syrup:soda ratio to the size of the straw, to the texture of the ice, to the design of the cup, to the design of the lid, has been carefully considered, calibrated, and executed to make you feel good, and make you want more, which is the classic pop music formula. She's doing it better than most right now.",
       "gold": "analysis",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "In the 1980s, a great moustache was key to being successful",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "He just doesn't look the same without it.",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Thanks =) I am really interested in music with no judgement. I think if so many people love her, there might be something to it. Just needed to understand it better.",
       "gold": "reaction",
-      "predicted": "hot_take"
+      "predicted": "reaction"
     },
     {
       "text": "I agree with your friend. My favorite songs of theirs don't have Fred 'singing'",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "He actually played bass when I seen them. I had no idea he could play.",
       "gold": "reaction",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "It doesn't \"always come back\", new rock songs hitting the chart are rare",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Bad sound? He can't go for that.",
@@ -183,37 +183,37 @@
     {
       "text": "The difference between Swedish cities and Swedish, well, country.",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "I disagree on your first point; universal experiences are vague. Personal experiences are specific. I dont think we're speaking the same language.",
       "gold": "analysis",
-      "predicted": "hot_take"
+      "predicted": "reaction"
     },
     {
       "text": "Trap did to hip-hop, what Post-Grunge did to rock. Someday hip-hop heads will admit it.",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Pop, country & rnb are the big genres in US right now, but the US is not where cool new music is being made right now. I'd look at UK to see where the game is at. Amapiano had a small moment, I'll think we'll see some integration in the mainstream (Central Cee already had some of those vibes on his songs). Garage is going mainstream, Interplanetary Criminal is doing dope stuff. Dnb is also growing. But also more analog punk stuff to counteract the AI and everything being polished. Internet Girl and Yungblud are two that I follow. What I think will happen is that none of these trends are monolithic enough to become the mainstream on their own. However I think we'll see elements of all of these integrated into the mainstream as flavors. What Dua Lipa did to disco and what The Weekend did to synthpop will probably happen to these genres also.",
       "gold": "hot_take",
-      "predicted": "reaction"
+      "predicted": "analysis"
     },
     {
       "text": "Every time mainstream rock comes back it's more niche than the last one tho",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "It is not overthinking there is an intentional formula to pop music and this is it.",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "For a lot of people, personal lyrics are rather boring compared to a danceable beat or a solid groove and chord progression.",
       "gold": "hot_take",
-      "predicted": "hot_take"
+      "predicted": "analysis"
     },
     {
       "text": "Definitely way overthinking a top 40 pop artist",
