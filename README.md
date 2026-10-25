@@ -331,36 +331,47 @@ Since I had zero disagreements, I cannot analyze a pattern of errors. However, a
 
 **What I changed:**
 
+I add more sample data to the minority lables of analysis and reaction , the analysis count inceased from 63 to 97, reaction increased from 45 to 98.`hot_take` count remains 141.
+
+
 **Which diagnosis pointed at it:**
+Diagnosis 2: too few examples for the minority labels. The agreement report (30/30) ruled out label noise, so the fix had to target the data imbalance rather than relabelling. Training settings were unchanged (3 epochs, lr 2e-5, batch 16, max length 128, seeds 42 / 7 / 2024).
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.75 | 0.608 | 0.529 | 0.588 | **MISSED** |
+| 2. Macro F1 | ≥ 0.55 | 0.536 | 0.427 | 0.490 | **MISSED** |
+| 3. `reaction` F1 | ≥ 0.40 | 0.696 | 0.235 | 0.815 | **MISSED** (fails on seed 7) |
+| 4. Confidence gap (most − least confident third) | ≥ 0.15 | 0.235 | 0.412 | 0.000 | **MISSED** (fails on seed 2024) |
+| 5. `analysis` recall | ≥ 0.50 | 0.133 | 0.267 | 0.000 | **MISSED** |
+
+Test split is now 51 posts per seed (21 `hot_take`, 15 `analysis`, 15 `reaction`), up from 38.
 
 **Did it help, and how do I know:**
+Partly. The model no longer collapses into one class. Before, every seed predicted `hot_take` for all 38 test posts (macro F1 0.237, spread 0.000). After, macro F1 rose to between 0.427 and 0.536 on every seed. It is now predicting `reaction` correctly (8, 2 and 11 of 15 on seeds 42, 7 and 2024). Accuracy only looks a little higher (0.53–0.61 vs. 0.553), but the bar is different: on the new test split, guessing `hot_take` every time would score just 21/51 = 0.412, so the model is now well above the majority-class baseline instead of sitting exactly on it.
 
-<!-- If it didn't, say so. Relabelling that didn't help is a genuinely
-     interesting result and earns full credit. -->
-
+It still missed all five targets, for two reasons:
+- **`analysis` is still mostly predicted as `hot_take`.** 13, 11 and 14 of the 15 true `analysis` posts went to `hot_take`, so `analysis` recall stayed between 0.000 and 0.267. Adding more `analysis` examples was not enough to teach the facts-vs-opinion boundary from my hardest-boundary rule.
+- **Results are unstable between seeds.** `reaction` F1 ranged from 0.235 to 0.815 and the confidence gap from 0.000 to 0.412. A target has to hold on all three seeds, so a single bad seed turns these into misses.
 
 
 ---
 
 ## What's Still Broken
 
-<!-- For each criterion still missed: what you'd do, and why you stopped. -->
+**1. Overall Accuracy (Target ≥ 0.68) & Macro F1 (Target ≥ 0.55)**
+What I'd do: I would collect an additional 100+ `analysis` posts and apply targeted data augmentation to balance the classes to a strict 1:1:1 ratio.
+**Why I stopped:** I stopped at ~330 total posts because manual labeling of 200+ new posts is highly time-consuming. The confusion matrix still shows the model struggles because `analysis` and `hot_take` textually overlap so much (13 analysis posts were misclassified as hot_take). I hit a plateau where more data volume requires a disproportionate amount of human effort.
 
+2. Reaction F1 (Target ≥ 0.40 on *all* seeds)**
+**What I'd do:** I would use k-fold cross-validation instead of a single 70/15/15 split to get a more robust estimate of the model's true performance.
+**Why I stopped:** I stopped because the massive spread (0.235 on Seed 7 vs. 0.815 on Seed 2024) is a structural limitation of the tiny test set (~38 posts). As the confusion matrix shows, on Seed 7, 7 reaction posts were misclassified as hot_take. With such a small denominator, a few wrong guesses drastically tank the F1 score. Fixing this requires abandoning the current holdout method, which is outside the scope of this milestone.
 
-
-**The gap between what I meant my labels to capture and what the model
-learned:**
-<!-- Two sentences. Your confusion matrix is the evidence. -->
+**3. Analysis Recall (Target ≥ 0.50)**
+**What I'd do:** I would merge `analysis` and `hot_take` into a single class (e.g., "opinionated") OR completely relabel the boundary using a rule like "only posts with numerical data count as analysis."
+**Why I stopped:** As the confusion matrix proves, the boundary itself is fundamentally ambiguous. 13 true `analysis` posts were labeled as `hot_take` because they contain strong opinions without explicit numbers. I stopped because fixing this requires a full relabeling of the dataset, which I did not have the time to do manually for this iteration.
 
 
 
@@ -394,9 +405,7 @@ learned:**
            agreement_results.json committed
        [ ] At least four new commits
        [ ] The SAME repository URL as last unit
-
-     Do not delete and recreate this repository.
-     ═════════════════════════════════════════════════════════════════════ -->
+-->
 
 ---
 
