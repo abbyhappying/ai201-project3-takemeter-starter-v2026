@@ -265,24 +265,26 @@ It proves the model completely collapsed the decision boundary and learned only 
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Overall accuracy | ≥ 0.75 | **MISSED** | The accuracy across all three seeds was 0.553 (Spread = 0.000). Because the model collapsed into predicting `hot_take` for every post, it failed to reach the 0.68 target by a significant margin. |
+| 2 | Macro F1 | ≥ 0.55 | **MISSED** | The Macro F1 was 0.237 across all seeds. Because the F1 scores for `analysis` and `reaction` were both 0.000, the macro average was dragged down far below the 0.55 target. |
+| 3 | Reaction label F1 | ≥ 0.40 | **MISSED** | The F1 for `reaction` was 0.000 on all three seeds. The model completely failed to identify the minority class, resulting in zero true positives. |
+| 4 | Confidence Calibration | Most confident 1/3 accuracy is ≥ 15% higher than least confident 1/3 | **MISSED** | Since the model predicted `hot_take` for all 38 test posts, its confidence scores did not correlate with accuracy. There was no meaningful gap between the most and least confident predictions. |
+| 5 | Analysis Recall | ≥ 0.50 across all three seeds | **MISSED** | The recall for `analysis` was 0.000 across all three seeds. As shown in the confusion matrix, all 10 true `analysis` posts were misclassified as `hot_take`. |
 
 **Diagnoses**
 
-<!-- For each miss: the cause, and how you know. The four common causes are:
-     too few examples for a label, a boundary you applied inconsistently, a
-     genuinely hard label pair, and a task the model can't reach from this
-     much data.
+I missed all five of my acceptance criteria.
 
-     ⚠️ Use your agreement report as evidence. It is the only instrument you
-     have that can tell a LABELLING problem from a MODEL problem, and this
-     section is graded on whether you used it that way. -->
+1. Overall Accuracy (MISSED: 0.553) & Macro F1 (MISSED: 0.237),because Majority-Class Collapse due to task unreachability from this much data.The model predicted `hot_take` for every single post in the test set, achieving exactly the 55.3% baseline accuracy of just guessing the majority class. Because the minority classes had 0 predictions, the Macro F1 was destroyed. The three-seed run showed a spread of 0, meaning the model consistently found this "lazy" local optimum regardless of the train/test split. More importantly, my Agreement Report showed a 100% match with the staff labels. This meaning this is a genuine model problem, not a Labelling Problem. The model simply does not have enough training examples to learn the complex boundary between `analysis` and `hot_take`.
 
+2. Reaction F1 (MISSED: 0.000) & Analysis Recall (MISSED: 0.000) because too few examples for the minority labels.
+`reaction` and `analysis` make up roughly 18% and 25% of the dataset, respectively. With a 70/15/15 split, the training set only had about 30-40 examples of these minority classes. This is statistically insufficient for DistilBERT to learn the distinct surface features of `reaction` without explicit class weighting.The confusion matrix confirms this. All 10 true `analysis` posts and all 7 true `reaction` posts were misclassified as `hot_take`. The model never predicted the minority classes, proving it prioritized minimizing loss on the majority class.
 
+3. Confidence Calibration (MISSED) due to boundary the model applied inconsistently / Model failure.Because the model predicted `hot_take` for all posts, its confidence scores were completely uncalibrated. The accuracy of the most confident 1/3 and least confident 1/3 were identical (both were just predicting `hot_take`). The model was confidently wrong.
+
+### What the Agreement Report Told Me
+
+Because I achieved 100% agreement using the staff's strict taxonomy, I can definitively rule out label noise. This is a pure Model Problem caused by class imbalance and insufficient data for minority classes.This diagnosis directly informs my improvement phase: I must address the class imbalance (e.g., via class weights or data augmentation) rather than relabeling my data.
 
 ---
 
